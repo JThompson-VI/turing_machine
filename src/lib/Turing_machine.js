@@ -86,19 +86,13 @@ function report_compilation_error(raw_program, offending_instruction) {
 }
 
 function get_program() {
-  let input_file = "example_programs/is_divisible_by_three.txt";
-  if (argv.length > 2) {
-    input_file = argv[2];
-  }
+  let input_file = argv[2];
   let instructions = fs.readFileSync(input_file, "utf8");
   return instructions;
 }
 
 function get_tape() {
-  if (argv.length > 3) {
-    return argv[3].split("");
-  }
-  return "111111".split("");
+  return argv[3].split("");
 }
 
 function run_program(tape, instruction_graph, config) {
